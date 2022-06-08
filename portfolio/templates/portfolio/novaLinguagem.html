@@ -1,0 +1,15 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+        <div class="cadeira_box">
+            <form action="" method="POST" enctype="multipart/form-data" style="font-size: 13px">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="row">
+                    <button type="submit" class="button">Gravar</button>
+                </div>
+            </form>
+            <div class="absolute">
+              <a href="{% url 'portfolio:lista_linguagens' %}"><button class="button">Voltar</button></a>
+            </div>
+        </div>
+{% endblock %}

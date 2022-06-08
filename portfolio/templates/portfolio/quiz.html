@@ -1,0 +1,33 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <form method='post' action='{% url 'portfolio:quiz' %}'>
+            <div class="caixa_vazia">
+                {% csrf_token %}
+                <div class="quiz_box">
+                    <div class="col-15"><label style="float: right;">Nome</label></div>
+                    <div class="col-40"><label style="float: right;"><input name="nome" id="nome" required></label></div>
+                </div>
+                <div style="overflow:auto;">
+                {% for p in perguntas %}
+                    <div class="quiz_box">
+                            <p>{{p.pergunta}}</p>
+                            <p><input type="radio" name="{{p.pergunta}}" id="gridRadios1" value="opcao1" checked>
+                            <label for="gridRadios1">  {{p.opcao1}}   </label></p>
+                            <p><input type="radio" name="{{p.pergunta}}" id="gridRadios2" value="opcao2">
+                            <label for="gridRadios2">  {{p.opcao2}}  </label></p>
+                            <p><input type="radio" name="{{p.pergunta}}" id="gridRadios1" value="opcao3">
+                            <label for="gridRadios1">  {{p.opcao3}} </label></p>
+                            <p><input type="radio" name="{{p.pergunta}}" id="gridRadios2" value="opcao4">
+                            <label for="gridRadios2"> {{p.opcao4}}  </label></p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <button type="submit" class="button_blog">Responder</button>
+        </form>
+        {% block section %}
+            <div class="grafico"><img src="data:image/png;base64,{{ data }}" alt="" width="300" height="240"></div>
+        {% endblock %}
+    </article>
+{% endblock %}

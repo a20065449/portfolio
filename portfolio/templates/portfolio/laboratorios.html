@@ -1,0 +1,15 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="contacto">
+            <div class="container">
+            {% for lab in labs %}
+                    <div class="center">
+                        <h4 class="h4">{{ lab.nome }}</h4>
+                        <p><a href="{{ lab.link }}" target="_blank">{{ lab.descricao }}</a></p>
+                    </div>
+            {% endfor %}
+            </div>
+        </div>
+    </article>
+{% endblock %}

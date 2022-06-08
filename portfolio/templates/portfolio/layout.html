@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+	<link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Mandali&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+    <script src="{% static 'portfolio/css/portfolio.js' %}"></script>
+    <script src="{% static 'portfolio/css/data_hora.js' %}"></script>
+</head>
+<body onload="data_hora()">
+  <header>
+      <div>
+          <p> Roberto Luzindro</p>
+      </div>
+      <nav>
+
+          <div class="dropdown">
+             <a href="{% url 'portfolio:home' %}"><button class="dropbtn" href="">Home</button></a>
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Sobre Mim</button>
+              <div class="dropdown-content">
+                  <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
+                  <a href="{% url 'portfolio:formacao' %}">Educação</a>
+                  <a href="{% url 'portfolio:competencias' %}">Aptidões e competências Pessoais</a>
+                  <a href="{% url 'portfolio:hobbie' %}">Interesses e Hobbies</a>
+              </div>
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Projetos</button>
+              <div class="dropdown-content">
+                  <a href="{% url 'portfolio:lista_projetos' %}">Realizados por Mim</a>
+                  <a href="{% url 'portfolio:lista_tfc' %}">Projectos de fim de Curso Interessantes</a>
+              </div>
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Programação WEB</button>
+              <div class="dropdown-content">
+                  <a href="#">Tecnologias Existentes</a>
+                  <div class="dropdown-content2">
+                      <a href="#">Front-end</a>
+                      <a href="#">Back-end</a>
+                      <a href="#">outras</a>
+                  </div>
+                  <a href="{% url 'portfolio:laboratorios' %}">Laboratórios</a>
+                  <a href="#">Notícias</a>
+              </div>
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Blog</button>
+              <div class="dropdown-content">
+                  <a href="{% url 'portfolio:blog' %}">Blog</a>
+                  <a href="{% url 'portfolio:quizz' %}">Quizz</a>
+              </div>
+
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Sobre este Website</button>
+              <div class="dropdown-content">
+                  <a href="{% url 'portfolio:lista_linguagens' %}">Tecnologias Usadas</a>
+                  <a href="#">Padrões Usados</a>
+              </div>
+          </div>
+          <div class="dropdown">
+             <a href="{% url 'portfolio:contacto' %}"><button class="dropbtn" href="">Contacto</button></a>
+          </div>
+          {% if request.user.is_authenticated %}
+              <div class="dropdown">
+                <a href="{% url 'portfolio:user' %}"><button class="dropbtn" href="">{{ request.user.first_name }}</button></a>
+              </div>
+          {% endif %}
+
+          <div class="dropdown">
+              {% if request.user.is_authenticated %}
+                    <a href="{% url 'portfolio:logout' %}"><button class="dropbtn" href="">Logout</button></a>
+              {% else    %}
+                <a href="{% url 'portfolio:login' %}"><button class="dropbtn" href="">Login</button></a>
+              {% endif %}
+          </div>
+      </nav>
+    </header>
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
+    <footer>
+        Roberto Luzindro, A20065449, 3 Ano, Universidade Lusófona de Humanidades e Tecnologias
+        <div class="data_hora" id="Data_hora"></div>
+        <div class="moeda" id="Moeda"></div>
+        <select id="moeda">   </select>
+
+        <p id="cambio"></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "portfolio/layout.html" %}
+{% block main %}
+    <article class="seguintes">
+        <div class="contacto">
+            <div class="login_box">
+                <h4>Login</h4>
+                {% if message %}
+                  <div> {{ message }} </div>
+                {% endif %}
+                <form action="{% url 'portfolio:login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-25"><label>User</label></div>
+                        <div class="col-40"><label><input type="text" name="username" class='form'></label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25"><label>Password</label></div>
+                        <div class="col-40"><label><input type="password" name="password" class='form'></label></div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="button">Entrar</button>
+                        <a href="{% url 'portfolio:home' %}"><button class="button" >Sair</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+{% endblock main %}

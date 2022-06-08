@@ -1,0 +1,35 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+<article class="seguintes">
+    <div class="user_box">
+    {% if request.user.is_authenticated %}
+        <div class="row">
+            <h4>Bem vindo, {{ request.user.first_name }}</h4>
+        </div>
+        <div class="row">
+            <p></p>
+            <p> Página para criar, alterar e apagar conteúdos do portfolio</p>
+        </div>
+        <div class="row">
+            <div class="dropdown">
+                <a href="{% url 'portfolio:licenciatura' %}"><button class="dropbtn" href="">Cadeiras</button></a>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'portfolio:lista_linguagens' %}"><button class="dropbtn" href="">Tecnologias</button></a>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'portfolio:lista_pessoas' %}"><button class="dropbtn" href="">Pessoas</button></a>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'portfolio:lista_projetos' %}"><button class="dropbtn" href="">Projetos</button></a>
+            </div>
+        </div>
+        <div class="absolute">
+            <a href="{% url 'portfolio:logout' %}"><button class="button">Logout</button></a>
+            <a href="{% url 'portfolio:home'%}"><button class="button">Home</button></a>
+        </div>
+    {% endif %}
+    </div>
+</article>
+{% endblock %}

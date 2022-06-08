@@ -1,0 +1,13 @@
+{% extends "portfolio/layout.html" %}
+{% block main %}
+  <article class="seguintes">
+        <div class="caixa_vazia">
+                <div class="blog_box">
+                    {% block section %}
+                        <img src="data:image/png;base64,{{ data }}" alt="">
+                    {% endblock %}
+                </div>
+        </div>
+        <a href="{% url 'portfolio:quiz' %}"><button type="submit" class="button_blog">Novo Quizz</button></a>
+    </article>
+{% endblock main %}

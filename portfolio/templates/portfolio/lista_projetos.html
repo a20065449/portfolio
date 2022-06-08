@@ -1,0 +1,36 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="caixa_vazia">
+            <div style="overflow:auto;">
+            {% for projeto in projetos %}
+                <div class="blog_box">
+                    <p>{{ projeto.nome }}</p>
+                    <p>{{ projeto.cadeira }}: {{ projeto.ano }} </p>
+                    <p>{{ projeto.descricao }}</p>
+                    <p><a href="{{ projeto.link }}" target="_blank"> {{ projeto.link }} </a></p>
+                    {% if projeto.link_github != '' %}  <p>
+                        <a href="{{ projeto.link_github  }}" target="_blank">{{ projeto.link_github }}</a></p>
+                    {% endif %}
+                    {% if projeto.link_youtube != '' %}  <p>
+                        <a href="{{ projeto.link_youtube  }}" target="_blank">{{ projeto.link_youtube }}</a></p>
+                    {% endif %}
+                    {% if projeto.logotipo != '' %}
+                        <div class="image_blog">
+                            <img src="{{ projeto.logotipo.url }}" alt="logotipo" width="200" height="150" >
+                        </div>
+                    {% endif %}
+                </div>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'portfolio:edita_projeto' projeto.id %}" class="button_edita">Editar</a>
+                {% endif %}
+            {% endfor %}
+             </div>
+        </div>
+        {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'portfolio:novo_projeto' %}"><button type="submit" class="button_blog">Novo Projeto</button></a>
+            </div>
+        {% endif %}
+    </article>
+{% endblock %}

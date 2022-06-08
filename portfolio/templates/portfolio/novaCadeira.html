@@ -1,0 +1,15 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="cadeira_box">
+        <form action="" method="POST" class=".form" style="font-size: 13px">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="row">
+                <button type="submit" class="button">Gravar</button>
+            </div>
+        </form>
+        <a href="{% url 'portfolio:licenciatura' %}"><button class="button">Voltar</button></a>
+    </div>
+    </article>
+{% endblock %}

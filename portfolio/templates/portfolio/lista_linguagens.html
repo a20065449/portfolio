@@ -1,0 +1,26 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="caixa_vazia">
+            <div>
+            {% for linguagem in linguagens %}
+                <div class="blog_box">
+                    <p>{{ linguagem.acronimo }}</p>
+                    <p>{{ linguagem.nome }}</p>
+                    {% if linguagem.link != '' %}  <p><a href="{{ linguagem.link  }}" target="_blank">Link</a></p>
+                    {% endif %}
+                    {% if linguagem.logotipo != '' %}
+                        <div class="image_blog"><img src="{{ linguagem.logotipo.url }}" alt="logotipo"></div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'portfolio:nova_linguagem' %}"><button type="submit" class="button_blog">Nova Linguagem</button></a>
+            </div>
+        {% endif %}
+           </div>
+    </article>
+{% endblock %}

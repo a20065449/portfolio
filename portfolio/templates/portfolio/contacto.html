@@ -1,0 +1,30 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <article class="seguintes">
+        <div class="contacto_box">
+            <div class="col-30"><img src="{% static 'portfolio/images/roberto.png' %}" width="150" height="150"></div>
+            <div class="col-70">
+                <p style="color: #3e8e41; font-size: 16px">Roberto Luzindro</p>
+                <p style="color: #3e8e41; font-size: 16px">Residente na Nazaré</p>
+            </div>
+            <div>
+                <a href="https://www.facebook.com/rluzindro" type="button" target="_blank">
+                    <img src="{% static 'portfolio/images/facebook.png' %}" ></a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/robertoluzindro/" type="button" target="_blank">
+                    <img src="{% static 'portfolio/images/instagram.png' %}"></a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/roberto-luzindro-a0216840/" type="button" target="_blank">
+                    <img src="{% static 'portfolio/images/linkedin.png' %}"></a>
+            </div>
+            <div>
+                <a href="https://github.com/a20065449/pw-labs-RobertoLuzindro-a20065449" type="button" target="_blank">
+                    <img src="{% static 'portfolio/images/github.png' %}"></a>
+            </div>
+        </div>
+    </article>
+{% endblock %}

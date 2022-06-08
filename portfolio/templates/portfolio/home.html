@@ -1,0 +1,58 @@
+<!-- home.html -->
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    {% load static %}
+    <article class="primeiro">
+         <div class="text_home">
+             <h3 class="h3">
+                 <span>Não Desista</span>
+                 <span>O início</span>
+                 <span>é sempre mais</span>
+                 <span>Difícil</span>
+             </h3>
+         </div>
+    </article>
+    <article class='segundo'>
+        <div class="caixa_dois">
+            <div class="col-25">
+                <div class="absolute_Image"></div>
+            </div>
+            <div class="col-15">
+                <span></span>
+            </div>
+                <div class="col-60" style="align-content: center">
+                    <div class="texto_home">
+                        <p>Olá, sou o Roberto, tenho 42 anos, casado, pai de 3 filhos(uma menina e dois meninos).</p>
+                        <p>Vivo e trabalho na Nazaré, sou empresário de Hotelaria e Restauração.</p>
+                        <p>Frequento o 3º ano do curso de Engenharia Informática da Universidade Lusófona de Humanidades e Tecnologias</p>
+
+                    </div>
+                </div>
+        </div>
+    </article >
+
+    <article class='terceiro'>
+        <div class="caixa_tres">
+            <div style="overflow:auto;">
+                <p> {% if hora > 20 %}          Boa noite,
+                    {% elif hora > 12 %}        Boa tarde,
+                    {% elif hora > 0 %}         Bom dia
+                    {% endif %}  estamos na {{ local }}, e são {{ hora }} horas.
+                </p>
+                <p>Em 2006, frequentava o último ano do curso de Engenhaira Informática da Universidade Lusófona,
+                    quando decidi congelar a matrícula, por falta de tempo.</p>
+                <p>Na altura comecei a trabalhar no BBVA, numa empresa de outsorcing, como programador.
+                        Desde dessa altura que a vontade de voltar a estudar para terminar o curso
+                        sempre foi uma das prioridades.</p>
+                <p>Só este ano é que tive verdadeiramente hipótese de o fazer.</p>
+                <p>Para mim, a conclusão do curso não é com o intuito de saída profissional, mas sim de realização pessoal.
+                <p>Estes são alguns dos meus passatempos.</p>
+                <p>{% for hobbie in hobbies %}
+                          {{hobbie}},
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </article>
+{% endblock %}
+

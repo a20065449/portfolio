@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+<article class="seguintes">
+        <div class="caixa_vazia" style="top: 20%">
+            <div style="overflow:auto;">
+                <div class="competencias_box">
+                    <div class="row">
+                        <div class="col-25"><label style="float: right;"><p>Passatempos</p></label></div>
+                        <div class="col-60"><p></p>
+                                {% for hobbie in hobbies %}
+                                    <p class="bold">{{ hobbie }}</p>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

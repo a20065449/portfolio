@@ -1,0 +1,55 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="cadeira_box" style="font-size: 13px;">
+        <h4 class="h4">{{ tfc.titulo }}</h4>
+        <div class="row">
+            <div class="col-25"><label>Autor</label></div>
+            <div class="col-25"><label>{{ tfc.autor}}</label></div>
+            <div class="col-25"><label></label></div>
+            <div class="col-25"><img src=" {{ tfc.image.url }}" width="100" height="100"></div>
+        </div>
+        <div class="row">
+            <div class="col-25"><label>Nome</label></div>
+            <div class="col-75"><label>{{ tfc.nome }}</label></div>
+        </div>
+        <div class="row">
+            <div class="col-25"><label>Orientadores</label></div>
+            <div class="col-50"><label>
+                    {% for nome in orientadores %}
+                        <span>{{ nome }}, </span>
+                    {% endfor %}
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25"><label>Link Github</label></div>
+            <div class="col-75d">
+                <label>
+                    <a href="{{ tfc.link_github }}" target="_blank">{{ tfc.link_github }}</a>
+                </label>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-25"><label>Link Youtube</label></div>
+            <div class="col-75d">
+                <label>
+                    <a href="{{ tfc.link_youtube }}" target="_blank">{{ tfc.link_youtube }}</a>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25"><label>Resumo</label></div>
+            <div class="col-75d"><label>{{ tfc.resumo }}</label></div>
+        </div>
+
+        <div class="absolute">
+            <a href="{% url 'portfolio:lista_tfc' %}"><button class="button">Voltar</button></a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:edita_tfc' tfc.id %}"><button class="button">Editar</button></a>
+                <a href="{% url 'portfolio:apaga_tfc' tfc.id %}"><button class="button">Apagar</button></a>
+            {% endif %}
+        </div>
+    </div>
+    </article>
+{% endblock %}

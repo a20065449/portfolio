@@ -1,0 +1,59 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+<article class="seguintes">
+        <div class="caixa_vazia" style="top: 20%">
+            <div style="overflow:auto;">
+                <div class="competencias_box">
+                    <div class="row">
+                        <div class="col-25"><label style="float: right;"><p>Organização</p></label></div>
+                        <div class="col-60"><p></p>
+                                {% for items in organizacao %}
+                                    <p class="bold">{{ items }}</p>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="competencias_box">
+                    <div class="row">
+                        <div class="col-25"><label style="float: right;"><p>Sociais</p></label></div>
+                        <div class="col-60"><p></p>
+                                {% for social in sociais %}
+                                    <p class="bold">{{ social }}</p>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="competencias_box">
+                    <div class="row">
+                        <div class="col-25"><label style="float: right;"><p>Programação</p></label></div>
+                        <div class="col-60"><p></p>
+                                {% for items in programacao %}
+                                    <label class="bold" style="padding: 2px">{{ items }} - </label>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="competencias_box">
+                    <div class="row">
+                        <div class="col-25"><label style="float: right;"><p>Informática</p></label></div>
+                        <div class="col-60"><p></p>
+                                {% for items in informaticas %}
+                                    <p class="bold">{{ items }}</p>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="competencias_box">
+                    <div class="row">
+                        <div class="col-25"><label style="float: right;"><p>Software</p></label></div>
+                        <div class="col-60"><p></p>
+                                {% for items in software %}
+                                    <p class="bold">{{ items }}</p>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

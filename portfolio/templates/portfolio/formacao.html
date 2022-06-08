@@ -1,0 +1,24 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+<article class="seguintes">
+        <div class="caixa_vazia" style="top: 20%">
+            <div style="overflow:auto;">
+            {% for escola in escolas %}
+                <div class="escolas_box">
+                    <div class="row">
+                        <div class="col-30"><label style="float: right;"><p> {{ escola.nome }}</p></label></div>
+                        <div class="col-70">
+                            <p>De <span>{{ escola.ano_Inicio}}</span> a <span>{{ escola.ano_Fim }} </span></p>
+                            <p class="bold">Localidade: <span class="normal">{{ escola.local}}</span></p>
+                            <p class="bold">Curso: <span class="normal">{{ escola.curso}}</span></p>
+                            <p class="bold">Grau: <span class="normal">{{ escola.grau}}</span></p>
+                            <p class="bold">Qualificação: <span class="normal">{{ escola.qualificacao}}</span></p>
+                            <p class="bold">Classificação: <span class="normal">{{ escola.classificacao}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+             </div>
+        </div>
+    </article>
+{% endblock %}

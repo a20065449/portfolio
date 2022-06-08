@@ -1,0 +1,51 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="projeto_box">
+        <form action="{% url 'portfolio:novo_tfc' %}" method="post" class=".form" enctype="multipart/form-data" style="font-size: 13px">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-15"></div>
+                <div class="col-50"><label>Novo Projeto TFC</label></div>
+            </div>
+            <div class="row">
+                <div class="col-15"><label style="float: right;">Nome</label></div>
+                <div class="col-40">{{ form.nome }}</div>
+                <div class="col-15"><label style="float: right;">Ano</label></div>
+                <div class="col-15">{{ form.ano}}</div>
+            </div>
+            <div class="row">
+                <div class="col-15"><label style="float: right;">Descricao</label></div>
+                <div class="col-75">{{ form.descricao }}</div>
+            </div>
+            <div class="row">
+                <div class="col-15"><label style="float: right;">Cadeira</label></div>
+                <div class="col-25">{{ form.cadeira }}</div>
+                <div class="col-15"><label style="float: right;">Email</label></div>
+                <div class="col-40">{{ form.email }}</div>
+
+            </div>
+            <div class="row">
+                <div class="col-15"><label style="float: right;">Link Github</label></div>
+                <div class="col-25">{{ form.link_github }}</div>
+                <div class="col-15"><label style="float: right;">Link Youtube</label></div>
+                <div class="col-25">{{ form.link_youtube }}</div>
+            </div>
+            <div class="row">
+                <div class="col-15"><label style="float: right;">Participantes</label></div>
+                <div class="col-25">{{ form.participantes }}</div>
+                <div class="col-15"><label style="float: right;">Tecnologias</label></div>
+                <div class="col-40">{{ form.tecnologias}}</div>
+            </div>
+            <div class="row">
+                <div class="col-15"><label style="float: right;">Logotipo</label></div>
+                <div class="col-75">{{ form.logotipo }}</div>
+            </div>
+            <div class="row">
+                <button type="submit" class="button">Gravar</button>
+                <a href="{% url 'portfolio:lista_tfc'%}" class="button">Voltar</a>
+            </div>
+        </form>
+    </div>
+    </article>
+{% endblock %}

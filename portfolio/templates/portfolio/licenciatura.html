@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="primeiro_home">
+        <div class="contacto">
+            <div class="container">
+            {% for cadeira in cadeiras %}
+                <div class="center">
+                    <p><a href="{% url 'portfolio:cadeira' cadeira.id %}">{{ cadeira.nome}}</a></p>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+            {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'portfolio:nova_cadeira' %}"><button type="submit" class="button_blog" style="margin-left: 10px">Nova Cadeira</button></a>
+            </div>
+        {% endif %}
+    </article>
+{% endblock %}

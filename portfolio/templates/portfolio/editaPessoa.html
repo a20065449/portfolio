@@ -1,0 +1,14 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <div class="cadeira_box">
+        <form action="{% url 'portfolio:edita_pessoa' pessoa_id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="absolute">
+                <a href="{% url 'portfolio:lista_pessoas' %}"><button class="button">Voltar</button></a>
+                <button type="submit" class="button">Gravar</button>
+                <a href="{% url 'portfolio:apaga_pessoa' pessoa_id %}"><button class="button" >Apagar</button></a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

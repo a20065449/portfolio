@@ -1,0 +1,29 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <article class="seguintes">
+        <div class="caixa_vazia">
+            <div style="overflow:auto;">
+            {% for mensagem in mensagens %}
+                    <div class="blog_box">
+                        <p>{{ mensagem.titulo }}</p>
+                        <p>{{ mensagem.autor }}: {{ mensagem.data.month }} - {{ mensagem.data.month }} - {{ mensagem.data.year }} : {{ mensagem.data.time}}</p>
+                        {% if mensagem.link != '' %}
+                            <p><a href="{{ mensagem.link }}" target="_blank">Link</a></p>
+                        {% endif %}
+                        {% if mensagem.descricao != '' %}
+                            <p>{{ mensagem.descricao }}</p>
+                        {% endif %}
+                        {% if mensagem.image != '' %}
+                            <div class="image_blog">
+                                <img src="{{ mensagem.image.url }}" alt="logotipo">
+                            </div>
+                        {% endif %}
+                    </div>
+            {% endfor %}
+             </div>
+        </div>
+        <div>
+            <a href="{% url 'portfolio:novopost' %}"><button type="submit" class="button_blog">Novo Post</button></a>
+        </div>
+    </article>
+{% endblock %}
