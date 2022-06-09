@@ -299,6 +299,7 @@ def linguagem_page_view(request, linguagem_id):
 	context = {'linguagem': linguagem}
 	return render(request, 'portfolio/linguagem.html', context)
 
+@login_required
 def nova_linguagem_page_view(request):
 	if not request.user.is_authenticated:
 		return HttpResponseRedirect(reverse('portfolio:login'))

@@ -1,4 +1,3 @@
-/*
 document.addEventListener('DOMContentLoaded', function() {
     fetch('http://api.exchangeratesapi.io/v1/latest?access_key=feeea4a36c99c7c5f31c70dbfae3d215')// envia GET request ao URL
         .then(response => response.json()) // Põe a responsta no formato json
@@ -7,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('Moeda').innerHTML = `1 EUR = ${rate.toFixed(2)} USD`; // põe os dados na consola
     });
 });
-*/
+
 /*
 document.addEventListener('DOMContentLoaded', function() {
     fetch('https://api.ipma.pt/open-data/distrits-islands.json')// envia GET request ao URL
@@ -17,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 */
 
 /*
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1100900.json')// envia GET request ao URL
         .then(response => response.json()) // Põe a responsta no formato json
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('Moeda').innerHTML = `Temperatura Maxima = ${tMax} `; // põe os dados na consola
     }); // põe os dados na consola
 });
-*/
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -53,3 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    */
+ */
