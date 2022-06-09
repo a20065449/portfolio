@@ -1,15 +1,15 @@
 {% extends 'portfolio/layout.html' %}
 {% block main %}
-    <div class="cadeira_box">
-        <form action="" method="POST" class=".form">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div class="row">
-                <button type="submit" class="button">Gravar</button>
-            </div>
-        </form>
-        <div class="absolute">
-            <a href="{% url 'portfolio:lista_pessoas' %}"><button class="button">Voltar</button></a>
+    <article class="seguintes">
+        <div class="cadeira_box">
+            <form action="" method="POST" class=".form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="row">
+                    <button type="submit" class="button">Gravar</button>
+                    <a href="{% url 'portfolio:lista_pessoas' %}"><button class="button">Voltar</button></a>
+                </div>
+            </form>
         </div>
-    </div>
+    </article>
 {% endblock %}

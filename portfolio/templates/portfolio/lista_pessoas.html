@@ -1,23 +1,28 @@
 {% extends 'portfolio/layout.html' %}
 {% block main %}
-    <div class="cadeira_box">
-        {% if request.user.is_authenticated %}
-        <div class="row">
-            <div class="dropdown">
-                <a href="{% url 'portfolio:nova_pessoa' %}"><button class="dropbtn" href="">Nova Pessoa</button></a>
+    <article class="seguintes">
+        <div class="cadeira_box">
+            {% if request.user.is_authenticated %}
+            <div class="row">
+                <div class="dropdown">
+                    <a href="{% url 'portfolio:nova_pessoa' %}"><button class="dropbtn" href="">Nova Pessoa</button></a>
+                </div>
+                <div class="dropdown">
+                    <a href="{% url 'portfolio:user' %}"><button class="dropbtn" href="">Voltar</button></a>
+                </div>
             </div>
-            <div class="dropdown">
-                <a href="{% url 'portfolio:user' %}"><button class="dropbtn" href="">Voltar</button></a>
-            </div>
-        </div>
-        {% endif %}
-        <div class="dropdown" style="padding: 10px;">
-            <select name="pessoas"class="sel" >
-            {% for pessoa in pessoas %}
-                    <option value="{% url 'portfolio:pessoa' pessoa.id %}">{{ pessoa.nome}}</option>
-            {% endfor %}
-           </select>
-        </div>
+            {% endif %}
+            <div class="dropdown" style="padding: 10px;">
+                <select name="pessoas"class="sel" >
+                {% for pessoa in pessoas %}
+                        <option value="{% url 'portfolio:pessoa' pessoa.id %}">{{ pessoa.nome}}</option>
 
-    </div>
+                {% endfor %}
+
+               </select>
+
+            </div>
+
+        </div>
+    </article>
 {% endblock %}

@@ -4,11 +4,12 @@
         <div class="contacto">
             <div class="login_box">
                 <h4>Logout</h4>
-
                 {% if message %}
-                  <div> {{ message }} </div>
+                    <div> {{ message }} </div>
                 {% endif %}
-                <div class="col-25"><a href="{% url 'portfolio:home' %}"><button class="button">Voltar</button></a></div>
+                <div class="col-25"><a href="{% url 'portfolio:home' %}">
+                    <button class="button">Voltar</button>
+                </a></div>
             </div>
         </div>
     </article>
