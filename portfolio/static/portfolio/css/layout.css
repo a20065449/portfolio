@@ -154,10 +154,8 @@ article.terceiro {
 }
 
 .mask2 {
-  /*-webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 30%, black 30%);*/
   mask-image: radial-gradient(circle,rgba(0, 0, 0, 0.5) 30%, black 30% );
 }
-
 
 footer{
     width: 100%;
@@ -434,7 +432,7 @@ div.absoluteTOP div{
     position: absolute;
 }
 .moeda{
-    left: 2%;
+    left: 1%;
     position: absolute;
 }
 
