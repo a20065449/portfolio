@@ -24,26 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const tmin = data.data[0].tMin;
             const hoje = data.data[0].forecastDate;
 
-
             document.getElementById('chuva').innerHTML = `Probabilidade de Percipitação: ${chuva}`;
             document.getElementById('hoje').innerHTML = `Data: ${hoje}`;
             document.getElementById('max').innerHTML = `Máxima: ${tmax}`;
             document.getElementById('min').innerHTML = `Minima: ${tmin}`;
-            /*
-            const locais = data.data;
-            for (let local in locais) {
-                let option = document.createElement('option');
-                option.value = data.data[local].forecastDate;
-                option.innerHTML = data.data[local].forecastDate;
-                document.querySelector('#cidade').append(option);
-            }
-            document.querySelector('select').onchange = () => {
-                const cidade = document.querySelector('#cidade').value;
-                const frase = `Possibilidade de Chuva = ${data.data[cidade].precipitaProb} `;
-                document.getElementById('#temperatura').innerHTML = frase;
-                return false;
-            }
-             */
     });
 });
 
