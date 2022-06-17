@@ -1,16 +1,4 @@
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('http://api.exchangeratesapi.io/v1/latest?access_key=feeea4a36c99c7c5f31c70dbfae3d215')// envia GET request ao URL
-        .then(response => response.json()) // Põe a responsta no formato json
-        .then(data => {
-            const rate = data.rates.USD;
-            document.getElementById('Moeda').innerHTML = `1 EUR = ${rate.toFixed(2)} USD`; // põe os dados na consola
-    });
-});
-
-/*
- */
+/* LEIRIA - Temperatura Atual*/
 
 document.addEventListener('DOMContentLoaded', function() {
     let url = 'https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1100900.json';
@@ -18,24 +6,42 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json()) // Põe a responsta no formato json
         .then(data => {
                 console.log(data);
-                const country = data.country;
                 const tmax = data.data[0].tMax;
                 const tmin = data.data[0].tMin;
-                console.log(country);
-                console.log(tmax);
-        document.getElementById('Moeda').innerHTML = `Temperatura - Máxima: ${tmax} - Minima: ${tmin} `; // põe os dados na consola
+        document.getElementById('Moeda').innerHTML = `Leiria  - Máx: ${tmax} - Min: ${tmin} `; // põe os dados na consola
     });
 });
 
 
-/*
+document.addEventListener('DOMContentLoaded', () => {
+    let url = 'https://api.ipma.pt/open-data/distrits-islands.json';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const locais = data.data;
+            for (let local in locais) {
+                let option = document.createElement('option');
+                option.value = data.data[local].globalIdLocal;
+                option.innerHTML = data.data[local].local;
+                document.querySelector('#cidade').append(option);
+            }
+
+            document.querySelector('select').onchange = () => {
+                const cidade = document.querySelector('#cidade').value;
+                document.querySelector('#temperatura').innerHTML = `Teste -  ${cidade}`;
+                console.log(cidade);
+                return false;
+            }
+    });
+});
+
+/* API MOEDA*/
 document.addEventListener('DOMContentLoaded', () => {
 
     fetch('http://api.exchangeratesapi.io/v1/latest?access_key=feeea4a36c99c7c5f31c70dbfae3d215')
         .then(response => response.json())
         .then(data => {
             const rates = data.rates;
-            console.log(rates);
             for (let rate in rates) {
                 let option = document.createElement('option');
                 option.value = rate;
@@ -52,6 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 return false;
             }
         });
-    });
+});
 
-    */

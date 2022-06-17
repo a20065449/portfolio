@@ -13,8 +13,12 @@
                         <div class="image_blog"><img src="{{ linguagem.logotipo.url }}" alt="logotipo"></div>
                     {% endif %}
                 </div>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'portfolio:linguagem' linguagem.id %}" class="button_edita">Editar</a>
+                {% endif %}
             {% endfor %}
             </div>
+
         </div>
         {% if request.user.is_authenticated %}
             <div>

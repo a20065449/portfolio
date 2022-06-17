@@ -47,7 +47,7 @@
               <div class="dropdown-content">
                   <a href="#">Tecnologias Existentes</a>
                   <div class="dropdown-content2">
-                      <a href="#">Front-end</a>
+                      <a href="{% url 'portfolio:lista_linguagens' %}">Front-end</a>
                       <a href="#">Back-end</a>
                       <a href="#">outras</a>
                   </div>
@@ -68,10 +68,14 @@
               <div class="dropdown-content">
                   <a href="{% url 'portfolio:lista_linguagens' %}">Tecnologias Usadas</a>
                   <a href="#">Padrões Usados</a>
+                  <a href="#">Video sobre o site</a>
               </div>
           </div>
           <div class="dropdown">
              <a href="{% url 'portfolio:contacto' %}"><button class="dropbtn" href="">Contacto</button></a>
+          </div>
+          <div class="dropdown">
+             <a href="{% url 'portfolio:api' %}"><button class="dropbtn" href="">API</button></a>
           </div>
           {% if request.user.is_authenticated %}
               <div class="dropdown">
@@ -96,7 +100,6 @@
         <div class="moeda" id="Moeda"></div>
         Roberto Luzindro, A20065449, 3 Ano, Universidade Lusófona de Humanidades e Tecnologias
         <div class="data_hora" id="Data_hora"></div>
-
     </footer>
 </body>
 </html>

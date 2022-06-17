@@ -16,13 +16,9 @@
                 <select name="pessoas"class="sel" >
                 {% for pessoa in pessoas %}
                         <option value="{% url 'portfolio:pessoa' pessoa.id %}">{{ pessoa.nome}}</option>
-
                 {% endfor %}
-
                </select>
-
             </div>
-
         </div>
     </article>
 {% endblock %}

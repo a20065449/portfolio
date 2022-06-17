@@ -185,7 +185,7 @@ def apaga_cadeira_page_view(request, cadeira_id):
 def lista_pessoas_page_view(request):
 	pessoas = Pessoa.objects.all().order_by('nome')
 
-	#f = open('/Users/Admin/Dropbox/Roberto/Lusofona/Programação WEB/pw-labs-RobertoLuzindro-a20065449/lab8/portfolio/professores.txt',encoding='utf-8')
+	#f = open('/portfolio/professores.txt',encoding='utf-8')
 	#lista_professores = f.readlines()
 	#f.close()
 
@@ -371,7 +371,10 @@ def edita_tfc_page_view(request, tfc_id):
 		form.save()
 		return HttpResponseRedirect(reverse('portfolio:lista_tfc'))
 
-	context = {'form': form, 'tfc': tfc}
+	context = {
+		'form': form,
+		'tfc': tfc
+	}
 	return render(request, 'portfolio/editaTfc.html', context)
 
 @login_required
@@ -401,8 +404,7 @@ def blog_page_view(request):
 	return render(request, 'portfolio/blog.html', {'mensagens': blog})
 
 def novopost_page_view(request):
-	if not request.user.is_authenticated:
-		return HttpResponseRedirect(reverse('portfolio:login'))
+
 	form = BlogForm(request.POST or None)
 	if form.is_valid():
 		form.save()
@@ -468,7 +470,8 @@ def quizz_page_view(request):
 
 def api_page_view(request):
 	api = Questionario.objects.all()
-	return render(request, 'portfolio/quiz.html', {'perguntas': api})
+
+	return render(request, 'portfolio/api.html')
 
 
 def cria_grafico():
