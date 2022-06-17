@@ -2,36 +2,48 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     let url = 'https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1100900.json';
-    fetch(url)// envia GET request ao URL
-        .then(response => response.json()) // Põe a responsta no formato json
+    fetch(url)
+        .then(response => response.json())
         .then(data => {
                 console.log(data);
                 const tmax = data.data[0].tMax;
                 const tmin = data.data[0].tMin;
-        document.getElementById('Moeda').innerHTML = `Leiria  - Máx: ${tmax} - Min: ${tmin} `; // põe os dados na consola
+        document.getElementById('Moeda').innerHTML = `Leiria  - Máx: ${tmax} - Min: ${tmin} `;
     });
 });
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    let url = 'https://api.ipma.pt/open-data/distrits-islands.json';
+    let url = 'https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1100900.json';
     fetch(url)
         .then(response => response.json())
         .then(data => {
+
+            const chuva = data.data[0].precipitaProb;
+            const tmax = data.data[0].tMax;
+            const tmin = data.data[0].tMin;
+            const hoje = data.data[0].forecastDate;
+
+
+            document.getElementById('chuva').innerHTML = `Probabilidade de Percipitação: ${chuva}`;
+            document.getElementById('hoje').innerHTML = `Data: ${hoje}`;
+            document.getElementById('max').innerHTML = `Máxima: ${tmax}`;
+            document.getElementById('min').innerHTML = `Minima: ${tmin}`;
+            /*
             const locais = data.data;
             for (let local in locais) {
                 let option = document.createElement('option');
-                option.value = data.data[local].globalIdLocal;
-                option.innerHTML = data.data[local].local;
+                option.value = data.data[local].forecastDate;
+                option.innerHTML = data.data[local].forecastDate;
                 document.querySelector('#cidade').append(option);
             }
-
             document.querySelector('select').onchange = () => {
                 const cidade = document.querySelector('#cidade').value;
-                document.querySelector('#temperatura').innerHTML = `Teste -  ${cidade}`;
-                console.log(cidade);
+                const frase = `Possibilidade de Chuva = ${data.data[cidade].precipitaProb} `;
+                document.getElementById('#temperatura').innerHTML = frase;
                 return false;
             }
+             */
     });
 });
 

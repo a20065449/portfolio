@@ -1,18 +1,33 @@
 {% extends 'portfolio/layout.html' %}
 {% block main %}
     <article class="seguintes">
-        <div class="cadeira_box" style="font-size: 13px;">
-
-            <div class="row">
-                <div class="col-25"><h4 class="h4">Câmbio de Moeda</h4></div>
-                <div class="col-50"><select id="moeda"> </select></div>
-                <div class="col-25"><label id="cambio"></label></div>
+     <div class="caixa_vazia" style="top: 20%">
+        <div style="overflow:auto;">
+            <div class="escolas_box">
+                <div class="row">
+                    <div class="col-50"><h4 class="h4">Temperatura em Leiria</h4></div>
+                </div>
+                <div class="row">
+                    <div class="col-50"><label id="hoje"></label></div>
+                </div>
+                <div class="row">
+                    <div class="col-50"><label id="chuva"></label></div>
+                </div>
+                <div class="row">
+                    <div class="col-50"><label id="max"></label></div>
+                </div>
+                <div class="row">
+                    <div class="col-50"><label id="min"></label></div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-25"><h4 class="h4">Tempo</h4></div>
-                <div class="col-50"><select id="cidade"> </select></div>
-                <div class="col-25"><label id="temperatura"></label></div>
+            <div class="escolas_box">
+                <div class="row">
+                    <div class="col-25"><h4 class="h4">Câmbio de Moeda</h4></div>
+                    <div class="col-25"><select id="moeda"> </select></div>
+                    <div class="col-50"><label id="cambio"></label></div>
+                </div>
             </div>
         </div>
+     </div>
     </article>
 {% endblock %}
