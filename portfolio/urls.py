@@ -38,6 +38,7 @@ urlpatterns = [
     path('quizz', views.quizz_page_view, name='quizz'),
     path('quiz', views.quiz_page_view, name='quiz'),
     path('api', views.api_page_view, name='api'),
+    path('video', views.video_page_view, name='video'),
     path('laboratorios', views.laboratorios_page_view, name='laboratorios'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),

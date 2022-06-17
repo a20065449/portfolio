@@ -48,8 +48,8 @@
                   <a href="#">Tecnologias Existentes</a>
                   <div class="dropdown-content2">
                       <a href="{% url 'portfolio:lista_linguagens' %}">Front-end</a>
-                      <a href="#">Back-end</a>
-                      <a href="#">outras</a>
+                      <a href="{% url 'portfolio:lista_linguagens' %}">Back-end</a>
+                      <a href="{% url 'portfolio:lista_linguagens' %}">outras</a>
                   </div>
                   <a href="{% url 'portfolio:laboratorios' %}">Laboratórios</a>
                   <a href="#">Notícias</a>
@@ -68,7 +68,7 @@
               <div class="dropdown-content">
                   <a href="{% url 'portfolio:lista_linguagens' %}">Tecnologias Usadas</a>
                   <a href="#">Padrões Usados</a>
-                  <a href="#">Video sobre o site</a>
+                  <a href="{% url 'portfolio:video' %}">Video sobre o site</a>
               </div>
           </div>
           <div class="dropdown">

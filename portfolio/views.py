@@ -473,6 +473,9 @@ def api_page_view(request):
 
 	return render(request, 'portfolio/api.html')
 
+def video_page_view(request):
+
+	return render(request, 'portfolio/video.html')
 
 def cria_grafico():
 
